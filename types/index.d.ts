@@ -26,11 +26,11 @@ declare type LoginUser = {
 }
 
 declare type User = {
-  // $id: string
+  $id: string
   // email: string
   // userId: string
   // dwollaCustomerUrl: string
-  // dwollaCustomerId: string
+  dwollaCustomerId: string
   firstName: string
   lastName: string
   // name: string

@@ -1,5 +1,6 @@
 import MobileNav from '@/components/MobileNav'
 import Sidebar from '@/components/Sidebar'
+import { randomUUID } from 'crypto'
 import Image from 'next/image'
 
 export default function RootLayout({
@@ -8,6 +9,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const loggedIn = {
+    $id: randomUUID(),
+    dwollaCustomerId: randomUUID(),
     firstName: 'Emerson',
     lastName: 'Dias',
   }

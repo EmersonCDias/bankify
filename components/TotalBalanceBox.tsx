@@ -1,5 +1,5 @@
-import AnimatedCounter from './AnimatedCounter'
-import DoughnutChart from './DoughnutChart'
+import AnimatedCounter from "./AnimatedCounter";
+import DoughnutChart from "./DoughnutChart";
 
 const TotalBalanceBox = ({
   accounts = [],
@@ -23,7 +23,7 @@ const TotalBalanceBox = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TotalBalanceBox
+export default TotalBalanceBox;

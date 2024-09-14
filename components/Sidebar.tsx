@@ -9,6 +9,8 @@ import { usePathname } from 'next/navigation'
 const Sidebar = ({ user }: SidebarProps) => {
   const pathname = usePathname()
 
+  console.log('user', user)
+
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4">

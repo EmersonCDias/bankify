@@ -18,6 +18,7 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-visually-hidden": "^1.1.0",
     "@sentry/nextjs": "^7.112.2",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
     "chart.js": "^4.4.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -48,6 +49,6 @@
     "eslint-plugin-prettier": "^5.2.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5.4.0"
   }
 }

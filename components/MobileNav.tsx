@@ -18,6 +18,8 @@ import { usePathname } from 'next/navigation'
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname()
 
+  console.log('user', user)
+
   return (
     <section className="w-fulll max-w-[264px]">
       <Sheet>
