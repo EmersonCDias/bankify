@@ -4,8 +4,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <main>
-      AUTH SIDEBAR
+    <main className="flex min-h-screen w-full justify-between font-inter">
       {children}
     </main>
   )

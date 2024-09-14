@@ -46,12 +46,15 @@ const MobileNav = ({ user }: MobileNavProps) => {
               alt="Bankify logo"
             />
 
-            <SheetTitle>Bankify</SheetTitle>
+            <SheetTitle>
+              <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
+                Bankify
+              </h1>
+            </SheetTitle>
 
             <VisuallyHidden.Root>
               <SheetDescription>Bankify Menu content</SheetDescription>
             </VisuallyHidden.Root>
-            {/* <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1"></h1> */}
           </Link>
 
           <div className="mobilenav-sheet">
