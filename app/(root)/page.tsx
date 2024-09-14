@@ -2,9 +2,12 @@ import HeaderBox from '@/components/HeaderBox'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
 import React from 'react'
 import RightSidebar from '@/components/RightSidebar'
+import { randomUUID } from 'crypto'
 
 const Home = () => {
-  const loggedIn = {
+  const loggedIn: User = {
+    $id: randomUUID(),
+    dwollaCustomerId: randomUUID(),
     firstName: 'Emerson',
     lastName: 'Dias',
     email: 'email@email.com',
@@ -30,7 +33,7 @@ const Home = () => {
         RECENT TRANSACTIONS
       </div>
 
-      <RightSidebar user={loggedIn} transactions={[]} banks={[{}, {}]} />
+      <RightSidebar user={loggedIn} transactions={[]} banks={[]} />
     </section>
   )
 }

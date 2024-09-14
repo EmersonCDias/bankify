@@ -13,6 +13,7 @@ export default function RootLayout({
     dwollaCustomerId: randomUUID(),
     firstName: 'Emerson',
     lastName: 'Dias',
+    email: 'email@email.com',
   }
 
   return (
