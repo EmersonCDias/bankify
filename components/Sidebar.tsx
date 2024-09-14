@@ -1,15 +1,15 @@
-"use client";
+'use client'
 
-import { sidebarLinks } from "@/constants";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { sidebarLinks } from '@/constants'
+import { cn } from '@/lib/utils'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const Sidebar = ({ user }: SidebarProps) => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  console.log("user", user);
+  console.log('user', user)
 
   return (
     <section className="sidebar">
@@ -27,13 +27,13 @@ const Sidebar = ({ user }: SidebarProps) => {
 
         {sidebarLinks.map((item) => {
           const isActive =
-            pathname === item.route || pathname.startsWith(`${item.route}/`);
+            pathname === item.route || pathname.startsWith(`${item.route}/`)
 
           return (
             <Link
               href={item.route}
               key={item.label}
-              className={cn("sidebar-link", { "bg-bank-gradient": isActive })}
+              className={cn('sidebar-link', { 'bg-bank-gradient': isActive })}
             >
               <div className="relative size-6">
                 <Image
@@ -41,19 +41,19 @@ const Sidebar = ({ user }: SidebarProps) => {
                   alt={item.label}
                   fill
                   className={cn({
-                    "brightness-[3] invert-0": isActive,
+                    'brightness-[3] invert-0': isActive,
                   })}
                 />
               </div>
-              <p className={cn("sidebar-label", { "!text-white": isActive })}>
+              <p className={cn('sidebar-label', { '!text-white': isActive })}>
                 {item.label}
               </p>
             </Link>
-          );
+          )
         })}
       </nav>
     </section>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

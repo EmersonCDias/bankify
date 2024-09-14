@@ -1,11 +1,11 @@
-import HeaderBox from "@/components/HeaderBox";
-import TotalBalanceBox from "@/components/TotalBalanceBox";
-import React from "react";
+import HeaderBox from '@/components/HeaderBox'
+import TotalBalanceBox from '@/components/TotalBalanceBox'
+import React from 'react'
 
 const Home = () => {
   const loggedIn = {
-    firstName: "Emerson",
-  };
+    firstName: 'Emerson',
+  }
 
   return (
     <section className="home">
@@ -14,7 +14,7 @@ const Home = () => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedIn?.firstName || "Guest"}
+            user={loggedIn?.firstName || 'Guest'}
             subtext="Access and manage you account your account and transactions efficiently."
           />
 
@@ -26,7 +26,7 @@ const Home = () => {
         </header>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
