@@ -1,19 +1,19 @@
-import MobileNav from '@/components/MobileNav'
-import Sidebar from '@/components/Sidebar'
-import { randomUUID } from 'crypto'
-import Image from 'next/image'
+import MobileNav from "@/components/MobileNav";
+import Sidebar from "@/components/Sidebar";
+import { randomUUID } from "crypto";
+import Image from "next/image";
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   const loggedIn = {
     $id: randomUUID(),
     dwollaCustomerId: randomUUID(),
-    firstName: 'Emerson',
-    lastName: 'Dias',
-  }
+    firstName: "Emerson",
+    lastName: "Dias",
+  };
 
   return (
     <main className="flex h-screen w-full font-inter">
@@ -31,5 +31,5 @@ export default function RootLayout({
         {children}
       </div>
     </main>
-  )
+  );
 }

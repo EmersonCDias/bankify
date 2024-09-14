@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Sheet,
@@ -7,18 +7,18 @@ import {
   SheetTitle,
   SheetContent,
   SheetTrigger,
-} from '@/components/ui/sheet'
-import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
-import { sidebarLinks } from '@/constants'
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+} from "@/components/ui/sheet";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import { sidebarLinks } from "@/constants";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const MobileNav = ({ user }: MobileNavProps) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  console.log('user', user)
+  console.log("user", user);
 
   return (
     <section className="w-fulll max-w-[264px]">
@@ -60,15 +60,15 @@ const MobileNav = ({ user }: MobileNavProps) => {
                 {sidebarLinks.map((item) => {
                   const isActive =
                     pathname === item.route ||
-                    pathname.startsWith(`${item.route}/`)
+                    pathname.startsWith(`${item.route}/`);
 
                   return (
                     <SheetClose asChild key={item.route}>
                       <Link
                         href={item.route}
                         key={item.label}
-                        className={cn('mobilenav-sheet_close w-full', {
-                          'bg-bank-gradient': isActive,
+                        className={cn("mobilenav-sheet_close w-full", {
+                          "bg-bank-gradient": isActive,
                         })}
                       >
                         <Image
@@ -77,19 +77,19 @@ const MobileNav = ({ user }: MobileNavProps) => {
                           width={20}
                           height={20}
                           className={cn({
-                            'brightness-[3] invert-0': isActive,
+                            "brightness-[3] invert-0": isActive,
                           })}
                         />
                         <p
-                          className={cn('text-16 font-semibold text-black-2', {
-                            'text-white': isActive,
+                          className={cn("text-16 font-semibold text-black-2", {
+                            "text-white": isActive,
                           })}
                         >
                           {item.label}
                         </p>
                       </Link>
                     </SheetClose>
-                  )
+                  );
                 })}
                 USER
               </nav>
@@ -98,7 +98,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
         </SheetContent>
       </Sheet>
     </section>
-  )
-}
+  );
+};
 
-export default MobileNav
+export default MobileNav;
