@@ -137,30 +137,30 @@ declare type NewDwollaCustomerParams = {
   ssn: string
 }
 
-declare interface CreditCardProps {
+declare type CreditCardProps = {
   account: Account
   userName: string
   showBalance?: boolean
 }
 
-declare interface BankInfoProps {
+declare type BankInfoProps = {
   account: Account
   appwriteItemId?: string
   type: 'full' | 'card'
 }
 
-declare interface HeaderBoxProps {
+declare type HeaderBoxProps = {
   type?: 'title' | 'greeting'
   title: string
   subtext: string
   user?: string
 }
 
-declare interface MobileNavProps {
+declare type MobileNavProps = {
   user: User
 }
 
-declare interface PageHeaderProps {
+declare type PageHeaderProps = {
   topTitle: string
   bottomTitle: string
   topDescription: string
@@ -168,12 +168,12 @@ declare interface PageHeaderProps {
   connectBank?: boolean
 }
 
-declare interface PaginationProps {
+declare type PaginationProps = {
   page: number
   totalPages: number
 }
 
-declare interface PlaidLinkProps {
+declare type PlaidLinkProps = {
   user: User
   variant?: 'primary' | 'ghost'
   dwollaCustomerId?: string
@@ -188,103 +188,103 @@ declare interface PlaidLinkProps {
 //   image: string;
 // };
 
-declare interface AuthFormProps {
+declare type AuthFormProps = {
   type: 'sign-in' | 'sign-up'
 }
 
-declare interface BankDropdownProps {
+declare type BankDropdownProps = {
   accounts: Account[]
   setValue?: UseFormSetValue<any>
   otherStyles?: string
 }
 
-declare interface BankTabItemProps {
+declare type BankTabItemProps = {
   account: Account
   appwriteItemId?: string
 }
 
-declare interface TotalBalanceBoxProps {
+declare type TotalBalanceBoxProps = {
   accounts: Account[]
   totalBanks: number
   totalCurrentBalance: number
 }
 
-declare interface FooterProps {
+declare type FooterProps = {
   user: User
   type?: 'mobile' | 'desktop'
 }
 
-declare interface RightSidebarProps {
+declare type RightSidebarProps = {
   user: User
   transactions: Transaction[]
   banks: Bank[] & Account[]
 }
 
-declare interface SidebarProps {
+declare type SidebarProps = {
   user: User
 }
 
-declare interface RecentTransactionsProps {
+declare type RecentTransactionsProps = {
   accounts: Account[]
   transactions: Transaction[]
   appwriteItemId: string
   page: number
 }
 
-declare interface TransactionHistoryTableProps {
+declare type TransactionHistoryTableProps = {
   transactions: Transaction[]
   page: number
 }
 
-declare interface CategoryBadgeProps {
+declare type CategoryBadgeProps = {
   category: string
 }
 
-declare interface TransactionTableProps {
+declare type TransactionTableProps = {
   transactions: Transaction[]
 }
 
-declare interface CategoryProps {
+declare type CategoryProps = {
   category: CategoryCount
 }
 
-declare interface DoughnutChartProps {
+declare type DoughnutChartProps = {
   accounts: Account[]
 }
 
-declare interface AnimatedCounterProps {
+declare type AnimatedCounterProps = {
   amount: number
 }
 
-declare interface PaymentTransferFormProps {
+declare type PaymentTransferFormProps = {
   accounts: Account[]
 }
 
 // Actions
-declare interface getAccountsProps {
+declare type getAccountsProps = {
   userId: string
 }
 
-declare interface getAccountProps {
+declare type getAccountProps = {
   appwriteItemId: string
 }
 
-declare interface getInstitutionProps {
+declare type getInstitutionProps = {
   institutionId: string
 }
 
-declare interface getTransactionsProps {
+declare type getTransactionsProps = {
   accessToken: string
 }
 
-declare interface CreateFundingSourceOptions {
+declare type CreateFundingSourceOptions = {
   customerId: string // Dwolla Customer ID
   fundingSourceName: string // Dwolla Funding Source Name
   plaidToken: string // Plaid Account Processor Token
   _links: object // Dwolla On Demand Authorization Link
 }
 
-declare interface CreateTransactionProps {
+declare type CreateTransactionProps = {
   name: string
   amount: string
   senderId: string
@@ -294,25 +294,25 @@ declare interface CreateTransactionProps {
   email: string
 }
 
-declare interface getTransactionsByBankIdProps {
+declare type getTransactionsByBankIdProps = {
   bankId: string
 }
 
-declare interface signInProps {
+declare type signInProps = {
   email: string
   password: string
 }
 
-declare interface getUserInfoProps {
+declare type getUserInfoProps = {
   userId: string
 }
 
-declare interface exchangePublicTokenProps {
+declare type exchangePublicTokenProps = {
   publicToken: string
   user: User
 }
 
-declare interface createBankAccountProps {
+declare type createBankAccountProps = {
   accessToken: string
   userId: string
   accountId: string
@@ -321,14 +321,14 @@ declare interface createBankAccountProps {
   shareableId: string
 }
 
-declare interface getBanksProps {
+declare type getBanksProps = {
   userId: string
 }
 
-declare interface getBankProps {
+declare type getBankProps = {
   documentId: string
 }
 
-declare interface getBankByAccountIdProps {
+declare type getBankByAccountIdProps = {
   accountId: string
 }
