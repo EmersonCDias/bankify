@@ -1,1 +1,1 @@
-yarn tsc --noEmit && yarn eslint . && yarn prettier --write .
+pnpm tsc --noEmit && yarn eslint . && yarn prettier --write .
