@@ -3,15 +3,10 @@ import TotalBalanceBox from '@/components/TotalBalanceBox'
 import React from 'react'
 import RightSidebar from '@/components/RightSidebar'
 import { randomUUID } from 'crypto'
+import { getLoggedInUser } from '@/lib/actions/user.actions'
 
-const Home = () => {
-  const loggedIn: User = {
-    $id: randomUUID(),
-    dwollaCustomerId: randomUUID(),
-    firstName: 'Emerson',
-    lastName: 'Dias',
-    email: 'email@email.com',
-  }
+const Home = async () => {
+  const loggedIn = await getLoggedInUser()
 
   return (
     <section className="home">
@@ -20,7 +15,7 @@ const Home = () => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedIn?.firstName || 'Guest'}
+            user={loggedIn.name || 'Guest'}
             subtext="Access and manage you account your account and transactions efficiently."
           />
 

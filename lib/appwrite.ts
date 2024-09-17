@@ -2,13 +2,14 @@
 
 import { Client, Account, Databases, Users } from 'node-appwrite'
 import { cookies } from 'next/headers'
+import { userSessionName } from '@/constants'
 
 export async function createSessionClient() {
   const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!)
 
-  const session = cookies().get('appwrite-session')
+  const session = cookies().get(userSessionName)
 
   if (!session || !session.value) {
     throw new Error('No session')

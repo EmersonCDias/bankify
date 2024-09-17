@@ -11,8 +11,12 @@ import { z } from 'zod'
 import CustomInput from '@/components/CustomInput'
 import { authFormSchema } from '@/lib/utils'
 import { Loader } from 'lucide-react'
+import { signIn, signUp } from '@/lib/actions/user.actions'
+import { useRouter } from 'next/navigation'
 
 const AuthForm = ({ type }: AuthFormProps) => {
+  const router = useRouter()
+
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -25,18 +29,55 @@ const AuthForm = ({ type }: AuthFormProps) => {
       password: '',
       firstName: '',
       lastName: '',
-      address: '',
+      address1: '',
       state: '',
       postalCode: '',
       dateOfBirth: '',
       ssn: '',
+      city: '',
     },
   })
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true)
-    console.log(values)
-    setIsLoading(false)
+
+    try {
+      if (type === 'sign-in') {
+        const response = await signIn({
+          email: values.email,
+          password: values.password,
+        })
+
+        console.log('1')
+        if (response) {
+          console.log('2')
+          router.push('/')
+        }
+      }
+
+      if (type === 'sign-up') {
+        const newUser = await signUp({
+          email: values.email || '',
+          password: values.password || '',
+          firstName: values.firstName || '',
+          lastName: values.lastName || '',
+          address1: values.address1 || '',
+          state: values.state || '',
+          postalCode: values.postalCode || '',
+          dateOfBirth: values.dateOfBirth || '',
+          ssn: values.ssn || '',
+          city: values.city || '',
+        })
+
+        if (newUser) {
+          setUser(newUser)
+        }
+      }
+    } catch (error) {
+      console.log('auth form error', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -97,11 +138,19 @@ const AuthForm = ({ type }: AuthFormProps) => {
                 </div>
 
                 <CustomInput
-                  id="address"
+                  id="address1"
                   control={form.control}
-                  name="address"
+                  name="address1"
                   label="Address"
                   placeholder="e.g.: 1600 Pennsylvania Avenue"
+                />
+
+                <CustomInput
+                  id="city"
+                  control={form.control}
+                  name="city"
+                  label="City"
+                  placeholder="e.g.: New York City"
                 />
 
                 <div className="flex gap-4">
@@ -147,7 +196,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
               control={form.control}
               name="email"
               label="E-mail"
-              placeholder="Enter your e-mail"
+              placeholder="e.g.: email@email.com"
             />
 
             <CustomInput
@@ -156,7 +205,7 @@ const AuthForm = ({ type }: AuthFormProps) => {
               name="password"
               label="Password"
               type="password"
-              placeholder="Password"
+              placeholder="Enter your password"
             />
 
             <div className="flex flex-col gap-4">

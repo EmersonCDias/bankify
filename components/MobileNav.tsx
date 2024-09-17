@@ -18,8 +18,6 @@ import { usePathname } from 'next/navigation'
 const MobileNav = ({ user }: MobileNavProps) => {
   const pathname = usePathname()
 
-  console.log('user', user)
-
   return (
     <section className="w-fulll max-w-[264px]">
       <Sheet>
@@ -47,9 +45,9 @@ const MobileNav = ({ user }: MobileNavProps) => {
             />
 
             <SheetTitle>
-              <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">
+              <span className="text-26 font-ibm-plex-serif font-bold text-black-1">
                 Bankify
-              </h1>
+              </span>
             </SheetTitle>
 
             <VisuallyHidden.Root>
