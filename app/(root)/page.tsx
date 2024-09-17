@@ -1,8 +1,7 @@
+import React from 'react'
 import HeaderBox from '@/components/HeaderBox'
 import TotalBalanceBox from '@/components/TotalBalanceBox'
-import React from 'react'
 import RightSidebar from '@/components/RightSidebar'
-import { randomUUID } from 'crypto'
 import { getLoggedInUser } from '@/lib/actions/user.actions'
 
 const Home = async () => {
@@ -15,7 +14,7 @@ const Home = async () => {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            user={loggedIn.name || 'Guest'}
+            user={loggedIn?.name || 'Guest'}
             subtext="Access and manage you account your account and transactions efficiently."
           />
 

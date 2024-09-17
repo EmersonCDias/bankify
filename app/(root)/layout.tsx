@@ -1,19 +1,18 @@
 import MobileNav from '@/components/MobileNav'
 import Sidebar from '@/components/Sidebar'
-import { randomUUID } from 'crypto'
 import Image from 'next/image'
+import { getLoggedInUser } from '@/lib/actions/user.actions'
+import { redirect } from 'next/navigation'
 
-export default function RootLayout({
+const RootLayout = async ({
   children,
 }: Readonly<{
   children: React.ReactNode
-}>) {
-  const loggedIn = {
-    $id: randomUUID(),
-    dwollaCustomerId: randomUUID(),
-    firstName: 'Emerson',
-    lastName: 'Dias',
-    email: 'email@email.com',
+}>) => {
+  const loggedIn = await getLoggedInUser()
+
+  if (!loggedIn) {
+    redirect('/sign-in')
   }
 
   return (
@@ -34,3 +33,5 @@ export default function RootLayout({
     </main>
   )
 }
+
+export default RootLayout
