@@ -13,6 +13,7 @@ import { authFormSchema } from '@/lib/utils'
 import { Loader } from 'lucide-react'
 import { signIn, signUp } from '@/lib/actions/user.actions'
 import { useRouter } from 'next/navigation'
+import PlaidLink from '@/components/PlaidLink'
 
 const AuthForm = ({ type }: AuthFormProps) => {
   const router = useRouter()
@@ -57,16 +58,16 @@ const AuthForm = ({ type }: AuthFormProps) => {
 
       if (type === 'sign-up') {
         const newUser = await signUp({
-          email: values.email || '',
-          password: values.password || '',
-          firstName: values.firstName || '',
-          lastName: values.lastName || '',
-          address1: values.address1 || '',
-          state: values.state || '',
-          postalCode: values.postalCode || '',
-          dateOfBirth: values.dateOfBirth || '',
-          ssn: values.ssn || '',
-          city: values.city || '',
+          email: values.email,
+          password: values.password,
+          firstName: values.firstName!,
+          lastName: values.lastName!,
+          address1: values.address1!,
+          state: values.state!,
+          postalCode: values.postalCode!,
+          dateOfBirth: values.dateOfBirth!,
+          ssn: values.ssn!,
+          city: values.city!,
         })
 
         if (newUser) {
@@ -113,7 +114,9 @@ const AuthForm = ({ type }: AuthFormProps) => {
       </header>
 
       {user ? (
-        <div className="flex flex-col gap-4"></div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
