@@ -1,6 +1,7 @@
 'use server'
 
 import { Client } from 'dwolla-v2'
+import * as Sentry from '@sentry/browser'
 
 const getEnvironment = (): 'production' | 'sandbox' => {
   const environment = process.env.DWOLLA_ENV as string
@@ -44,8 +45,7 @@ export const createOnDemandAuthorization = async () => {
     const onDemandAuthorization = await dwollaClient.post(
       'on-demand-authorizations'
     )
-    const authLink = onDemandAuthorization.body._links
-    return authLink
+    return onDemandAuthorization.body._links
   } catch (err) {
     console.error('Creating an On Demand Authorization Failed: ', err)
   }
@@ -58,8 +58,12 @@ export const createDwollaCustomer = async (
     return await dwollaClient
       .post('customers', newCustomer)
       .then((res) => res.headers.get('location'))
-  } catch (err) {
-    console.error('Creating a Dwolla Customer Failed: ', err)
+  } catch (err: any) {
+    Sentry.captureException(err)
+    console.error(
+      'Creating a Dwolla Customer Failed: ',
+      err.body._embedded.errors
+    )
   }
 }
 
