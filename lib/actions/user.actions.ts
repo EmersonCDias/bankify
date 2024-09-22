@@ -262,8 +262,6 @@ export const getBanks = async ({ userId }: getBanksProps) => {
       [Query.equal('userId', [userId])]
     )
 
-    console.log('banks =======>', banks)
-
     return parseStringify(banks.documents)
   } catch (error) {
     console.log(error)

@@ -91,6 +91,8 @@ export const topCategoryStyles = {
   },
 }
 
+export const userSessionName = 'appwrite-session'
+
 export const transactionCategoryStyles = {
   'Food and Drink': {
     borderColor: 'border-pink-600',
@@ -141,5 +143,3 @@ export const transactionCategoryStyles = {
     chipBackgroundColor: 'bg-inherit',
   },
 }
-
-export const userSessionName = 'bankify-session'
