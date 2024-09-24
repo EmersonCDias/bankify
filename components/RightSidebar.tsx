@@ -1,5 +1,3 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import BankCard from '@/components/BankCard'
 
 const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
@@ -28,18 +26,6 @@ const RightSidebar = ({ user, transactions, banks }: RightSidebarProps) => {
       <section className="banks">
         <div className="flex w-full justify-between">
           <h2 className="header-2">My Banks</h2>
-
-          <Link href="/" className="flex align-middle flex-wrap gap-1">
-            <Image
-              src="/icons/plus.svg"
-              alt="plus"
-              width={20}
-              height={20}
-              style={{ width: 'auto', height: 'auto' }}
-            />
-
-            <h2 className="text-14 font-semibold text-gray-600">Add bank</h2>
-          </Link>
         </div>
 
         {banks?.length > 0 && (

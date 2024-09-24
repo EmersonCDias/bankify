@@ -31,7 +31,6 @@ const BankCard = ({
 
             <p className="text-14 font-semibold tracking-[1.1px] text-white">
               ●●●● ●●●● ●●●● <span className="text-16">{account.mask}</span>
-              <span className="text-16">{1234}</span>
             </p>
           </article>
         </div>
@@ -54,6 +53,7 @@ const BankCard = ({
           height={190}
           alt="lines"
           className="absolute top-0 left-0"
+          style={{ width: 'auto', height: 'auto' }}
         />
       </Link>
 

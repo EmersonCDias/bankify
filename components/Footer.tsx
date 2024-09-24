@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { logoutAccount } from '@/lib/actions/user.actions'
 import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
 
 const Footer = ({ user, type = 'desktop' }: FooterProps) => {
   const router = useRouter()
@@ -16,25 +17,17 @@ const Footer = ({ user, type = 'desktop' }: FooterProps) => {
 
   return (
     <footer className="footer">
-      <div className={type === 'mobile' ? 'footer_name-mobile' : 'footer_name'}>
-        <p className="text-xl font-bold text-gray-700">{user?.firstName[0]}</p>
-      </div>
-
-      <div
-        className={type === 'mobile' ? 'footer_email-mobile' : 'footer_email'}
+      <Button
+        onClick={() => handleLogout()}
+        variant="ghost"
+        className="plaidlink-default relative"
       >
-        <h1 className="text-14 truncate font-normal text-gray-700">
-          {user.firstName}
-        </h1>
+        <Image src="icons/logout.svg" width={24} height={24} alt="logout" />
 
-        <p className="text-14 truncate font-semibold text-gray-700">
-          {user.email}
+        <p className="hiddenl text-[16px] font-semibold text-black-2 xl:block">
+          Logout
         </p>
-      </div>
-
-      <div className="footer_image" onClick={() => handleLogout()}>
-        <Image className="relative" src="icons/logout.svg" fill alt="bankify" />
-      </div>
+      </Button>
     </footer>
   )
 }

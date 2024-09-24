@@ -1,10 +1,10 @@
 import HeaderBox from '@/components/HeaderBox'
-// import { Pagination } from '@/components/Pagination'
-// import TransactionsTable from '@/components/TransactionsTable'
+import { Pagination } from '@/components/Pagination'
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions'
 import { getLoggedInUser } from '@/lib/actions/user.actions'
 import { formatAmount } from '@/lib/utils'
 import React from 'react'
+import TransactionsTable from '@/components/TransactionsTable'
 
 const TransactionHistory = async ({
   searchParams: { id, page },
@@ -61,14 +61,15 @@ const TransactionHistory = async ({
           </div>
         </div>
 
-        {/*<section className="flex w-full flex-col gap-6">*/}
-        {/*  <TransactionsTable transactions={currentTransactions} />*/}
-        {/*  {totalPages > 1 && (*/}
-        {/*    <div className="my-4 w-full">*/}
-        {/*      <Pagination totalPages={totalPages} page={currentPage} />*/}
-        {/*    </div>*/}
-        {/*  )}*/}
-        {/*</section>*/}
+        <section className="flex w-full flex-col gap-6">
+          <TransactionsTable transactions={currentTransactions} />
+
+          {totalPages > 1 && (
+            <div className="my-4 w-full">
+              <Pagination totalPages={totalPages} page={currentPage} />
+            </div>
+          )}
+        </section>
       </div>
     </div>
   )
