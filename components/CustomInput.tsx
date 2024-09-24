@@ -10,6 +10,7 @@ import { Control, FieldPath } from 'react-hook-form'
 import { z } from 'zod'
 import { authFormSchema } from '@/lib/utils'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const formSchema = authFormSchema('sign-up')
 
 type CustomInputProps = {

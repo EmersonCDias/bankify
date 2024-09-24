@@ -24,7 +24,7 @@ const RootLayout = async ({
           <Image src="/icons/logo.svg" width={30} height={30} alt="logo" />
 
           <div>
-            <MobileNav user={loggedIn} />
+            <MobileNav />
           </div>
         </div>
 
